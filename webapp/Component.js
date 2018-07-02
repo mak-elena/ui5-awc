@@ -33,6 +33,7 @@ sap.ui.define([
 				this._initProductsModel();
 
 				this.updateContextProfile();
+				this._initSensors();
 
 				// call the base component's init function and create the App view
 				UIComponent.prototype.init.apply(this, arguments);
@@ -97,6 +98,33 @@ sap.ui.define([
 				var oProductsModel = new JSONModel(jQuery.sap.getModulePath("ui5.awc.demo", "/model/products.json"));
 				//this.setModel(oProductsModel, "products");
 				this.setModel(oProductsModel);
+			},
+
+			_initSensors: function () {
+				let sensor = new Accelerometer();
+				sensor.start();
+
+				sensor.onreading = () => {
+					/*console.log("Acceleration along X-axis: " + sensor.x);
+					console.log("Acceleration along Y-axis: " + sensor.y);
+					console.log("Acceleration along Z-axis: " + sensor.z);*/
+					alert("Acceseleration");
+				}
+
+
+				/* shake */
+				const shakeThreshold = 25;
+
+				let sensor1 = new LinearAccelerationSensor({frequency: 60});
+
+				sensor1.addEventListener('reading', () => {
+					if (sensor.x > shakeThreshold) {
+						alert("Shake detected.");
+						//console.log("Shake detected.");
+					}
+				});
+
+				sensor.start();
 			}
 
 		});
