@@ -1,0 +1,44 @@
+<mvc:View
+	controllerName="ui5.awc.demo.controller.Master"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m"
+	xmlns:f="sap.f">
+
+	<f:DynamicPage
+		id="masterPage"
+		preserveHeaderStateOnScroll="true"
+		toggleHeaderOnTitleClick="false">
+		<!-- DynamicPage Title -->
+		<f:title>
+			<f:DynamicPageTitle>
+				<f:heading>
+				</f:heading>
+				<f:actions>
+					<Button
+						icon="sap-icon://full-screen"
+						type="Transparent"
+						press="onFullScreenPress"/>
+				</f:actions>
+			</f:DynamicPageTitle>
+		</f:title>
+		<f:content>
+			<VBox fitContainer="true">
+				<HBox wrap="Wrap"
+					  fitContainer="true">
+					<GenericTile
+						header="UI Density"
+						press="onShowUIDensityExample">
+						<TileContent>
+						</TileContent>
+					</GenericTile>
+					<GenericTile
+						header="UiStructure"
+						press="onShowUiStructureExample">
+						<TileContent>
+						</TileContent>
+					</GenericTile>
+				</HBox>
+			</VBox>
+		</f:content>
+	</f:DynamicPage>
+</mvc:View>

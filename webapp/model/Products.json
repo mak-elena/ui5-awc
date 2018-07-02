@@ -1,0 +1,12 @@
+[
+	{
+		"name": "Pizza Margarita",
+		"price": 6.0,
+		"currency": "Euro"
+	},
+	{
+		"name": "Pizza Pepperoni",
+		"price": 7.0,
+		"currency": "Euro"
+	}
+]

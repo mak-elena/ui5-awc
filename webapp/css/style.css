@@ -1,0 +1,14 @@
+/* fix wrapping of tile content */
+.ui5-awc .sapMTileCnt.News .sapMTileCntContent > .sapMTcInnerMarker {
+	width: 100%;
+}
+
+.ui5-awc
+.sapFDynamicPageTitleMain > .sapFDynamicPageTitleMainInner .sapFDynamicPageTitleMainHeading .sapFDynamicPageTitleMainHeadingInner {
+	min-width: 210px;
+}
+
+
+.sapMHBox.ui5-awc-productItem > .sapMFlexItem:first-child {
+	flex-grow: 1 !important;
+}
