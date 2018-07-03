@@ -23,9 +23,6 @@
 		</semantic:titleSnappedContent>
 
 		<semantic:headerContent>
-			<Text text="{i18n>motionDetectedText} {context>/vibration}"/>
-			<Text text="{i18n>accelerationText} {i18n>XText} {context>/accelerationX}; {i18n>YText} {context>/accelerationY}; {i18n>ZText} {context>/accelerationZ};"/>
-			<Text text="{i18n>shakeText} {i18n>XText} {context>/shakeX}; {i18n>YText} {context>/shakeY}; {i18n>ZText} {context>/shakeZ};" />
 			<SegmentedButton
 				id="theme"
 				selectedKey="{context>/vibration}">
@@ -60,12 +57,16 @@
 						</CustomListItem>
 					</items>
 				</List>
-				<awc:ProductItem
+				<!--<awc:ProductItem
 					name="name"
 					price="1"
 					currency="EUR"
-					quantity="0" />
-				<awc:AdaptiveButton text="Order Now!" />
+					quantity="0" />-->
+				<awc:AdaptiveButton text="Order My Pizza" class="ui5-awc-panel__order-button" />
+				<Text text="{i18n>motionDetectedText} {context>/vibration}"/>
+				<Text text="{i18n>accelerationText} {i18n>XText} {context>/accelerationX}; {i18n>YText} {context>/accelerationY}; {i18n>ZText} {context>/accelerationZ};"/>
+				<Text text="{i18n>shakeText} {i18n>XText} {context>/shakeX}; {i18n>YText} {context>/shakeY}; {i18n>ZText} {context>/shakeZ};" />
+
 			</VBox>
 		</semantic:content>
 

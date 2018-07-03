@@ -12,3 +12,8 @@
 .sapMHBox.ui5-awc-productItem > .sapMFlexItem:first-child {
 	flex-grow: 1 !important;
 }
+
+
+.ui5-awc-panel__order-button {
+	width: 100%;
+}

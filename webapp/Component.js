@@ -102,7 +102,7 @@ sap.ui.define([
 			},
 
 			_initSensors: function () {
-				let sensor = new Accelerometer({frequency: 100});
+				let sensor = new Accelerometer({frequency: 500});
 				sensor.start();
 				sensor.active = true;
 
