@@ -108,7 +108,10 @@ sap.ui.define([
 					/*console.log("Acceleration along X-axis: " + sensor.x);
 					console.log("Acceleration along Y-axis: " + sensor.y);
 					console.log("Acceleration along Z-axis: " + sensor.z);*/
-					alert("Acceseleration");
+					if(sensor.x > 10) {
+						var oModel = this.getModel("context");
+						oModel.setProperty("/vibration", 1);
+					}
 				}
 
 
