@@ -101,14 +101,14 @@ sap.ui.define([
 			},
 
 			_initSensors: function () {
-				let sensor = new Accelerometer();
+				let sensor = new Accelerometer({frequency: 100});
 				sensor.start();
 
 				sensor.onreading = () => {
 					/*console.log("Acceleration along X-axis: " + sensor.x);
 					console.log("Acceleration along Y-axis: " + sensor.y);
 					console.log("Acceleration along Z-axis: " + sensor.z);*/
-					if(sensor.x > 10) {
+					if(sensor.x > 0.1) {
 						var oModel = this.getModel("context");
 						var val = oModel.getProperty("/vibration");
 						oModel.setProperty("/vibration", 1);
