@@ -31,9 +31,10 @@ sap.ui.define([
 
 				this._initContextModel();
 				this._initProductsModel();
-
 				this.updateContextProfile();
+
 				this._initSensors();
+
 
 				// call the base component's init function and create the App view
 				UIComponent.prototype.init.apply(this, arguments);
@@ -105,17 +106,30 @@ sap.ui.define([
 				sensor.start();
 				sensor.active = true;
 
-				sensor.onreading = () => {
+				var oModel = this.getModel("context");
+
+				sensor.addEventListener('reading', function(){
 					if(sensor.x > 0.1) {
-						var oModel = this.getModel("context");
-						var val = oModel.getProperty("/vibration");
 						oModel.setProperty("/vibration", 1);
 						oModel.setProperty("/accelerationX", sensor.x);
 						oModel.setProperty("/accelerationY", sensor.y);
 						oModel.setProperty("/accelerationZ", sensor.z);
+						this.updateContextProfile();
+
+					}
+				}.bind(this));
+
+				/*sensor.onreading = () => {
+					if(sensor.x > 0.1) {
+						oModel.setProperty("/vibration", 1);
+						oModel.setProperty("/accelerationX", sensor.x);
+						oModel.setProperty("/accelerationY", sensor.y);
+						oModel.setProperty("/accelerationZ", sensor.z);
+						this.updateContextProfile();
 
 					}
 				}
+				.bind(this);*/
 
 
 				/* shake */
@@ -123,11 +137,22 @@ sap.ui.define([
 
 				let sensor1 = new LinearAccelerationSensor({frequency: 60});
 
-				sensor1.addEventListener('reading', () => {
-					if (sensor.x > shakeThreshold) {
-						oModel.setProperty("/shake", "Shake detected");
+				sensor.addEventListener('reading', function(){
+					if(sensor.x > 0.1) {
+						oModel.setProperty("/shakeX", sensor.x);
+						oModel.setProperty("/shakeY", sensor.y);
+						oModel.setProperty("/shakeZ", sensor.z);
+						this.updateContextProfile();
+
 					}
-				});
+				}.bind(this));
+/*				sensor1.onreading = () => {
+					//if (sensor.x > shakeThreshold) {
+						oModel.setProperty("/shakeX", sensor.x);
+						oModel.setProperty("/shakeY", sensor.y);
+						oModel.setProperty("/shakeZ", sensor.z);
+					//}
+				}*/
 
 				sensor1.start();
 				sensor1.active = true;

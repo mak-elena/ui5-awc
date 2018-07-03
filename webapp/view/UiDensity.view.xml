@@ -23,9 +23,9 @@
 		</semantic:titleSnappedContent>
 
 		<semantic:headerContent>
-			<Text text="{i18n>motionDetectedText} {context>/vibration}" visible="{= ${context>/vibration} > 0 ? true : false }"/>
-			<Text text="{i18n>accelerationXText} {context>/accelerationX}; {i18n>accelerationYText} {context>/accelerationY}; {i18n>accelerationZText} {context>/accelerationZ}" visible="{= ${context>/vibration} > 0 ? true : false }"/>
-			<Text text="{i18n>shakeText} {context>/shake}"/>
+			<Text text="{i18n>motionDetectedText} {context>/vibration}"/>
+			<Text text="{i18n>accelerationText} {i18n>XText} {context>/accelerationX}; {i18n>YText} {context>/accelerationY}; {i18n>ZText} {context>/accelerationZ};"/>
+			<Text text="{i18n>shakeText} {i18n>XText} {context>/shakeX}; {i18n>YText} {context>/shakeY}; {i18n>ZText} {context>/shakeZ};" />
 			<SegmentedButton
 				id="theme"
 				selectedKey="{context>/vibration}">
