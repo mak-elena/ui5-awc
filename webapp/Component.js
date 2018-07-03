@@ -138,13 +138,18 @@ sap.ui.define([
 				let sensor1 = new LinearAccelerationSensor({frequency: 60});
 
 				sensor.addEventListener('reading', function(){
+					oModel.setProperty("/shakeX", sensor.x);
+					oModel.setProperty("/shakeY", sensor.y);
+					oModel.setProperty("/shakeZ", sensor.z);
 					if(sensor.x > 1) {
-						oModel.setProperty("/shakeX", sensor.x);
-						oModel.setProperty("/shakeY", sensor.y);
-						oModel.setProperty("/shakeZ", sensor.z);
-						this.updateContextProfile();
-
+						oModel.setProperty("/vibration", 1);
+					} else if (sensor.x > 2) {
+						oModel.setProperty("/vibration", 2);
 					}
+					else {
+						oModel.setProperty("/vibration", 0);
+					}
+					this.updateContextProfile();
 				}.bind(this));
 /*				sensor1.onreading = () => {
 					//if (sensor.x > shakeThreshold) {
