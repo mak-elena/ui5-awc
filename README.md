@@ -2,4 +2,4 @@
 
 # ui5-awc
 
-Preparation
+Preparation to OSCON 2018
