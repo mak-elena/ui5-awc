@@ -25,7 +25,7 @@
 		<semantic:headerContent>
 			<Text text="{i18n>motionDetectedText} {context>/vibration}" visible="{= ${context>/vibration} > 0 ? true : false }"/>
 			<Text text="{i18n>accelerationXText} {context>/accelerationX}; {i18n>accelerationYText} {context>/accelerationY}; {i18n>accelerationZText} {context>/accelerationZ}" visible="{= ${context>/vibration} > 0 ? true : false }"/>
-			<Text text="{context>/shake}"/>
+			<Text text="{i18n>shakeText} {context>/shake}"/>
 			<SegmentedButton
 				id="theme"
 				selectedKey="{context>/vibration}">
