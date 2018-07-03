@@ -95,7 +95,7 @@ sap.ui.define([
 			},
 
 			_initProductsModel: function () {
-				var oProductsModel = new JSONModel(jQuery.sap.getModulePath("ui5.awc.demo", "/model/products.json"));
+				var oProductsModel = new JSONModel(jQuery.sap.getModulePath("ui5/awc/demo", "/model/Products.json"));
 				//this.setModel(oProductsModel, "products");
 				this.setModel(oProductsModel);
 			},
