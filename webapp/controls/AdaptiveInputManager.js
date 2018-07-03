@@ -7,14 +7,14 @@ sap.ui.define([],
 			oContextStyleElement.innerHTML =
 				"@context (vibration > 0) {" +
 					".sapMInput.ui5-awc_adaptiveInput .sapMInputBaseInner {" +
-						"width: 3.8rem;" +
-						"font-size: 1.5rem;" +
+						"width: 3.4rem;" +
+						"font-size: 1.2rem;" +
 					"}" +
 				"}" +
 				"@context (vibration > 1) {" +
 					".sapMInput.ui5-awc_adaptiveInput .sapMInputBaseInner {" +
-						"width: 4.4rem;" +
-						"font-size: 2rem;" +
+						"width: 3.4rem;" +
+						"font-size: 1.8rem;" +
 					"}" +
 				"}";
 			var oHead = document.querySelector('head');

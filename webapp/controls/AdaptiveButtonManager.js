@@ -9,18 +9,18 @@ sap.ui.define([
 			oContextStyleElement.innerHTML ="" +
 					"@context (vibration > 0) {" +
 					".sapMBtn.ui5-awc_adaptiveButton .sapMBtnContent {" +
-						"padding: 1rem;" +
+						"padding: 1.5rem;" +
+					"}" +
+					" .sapMBtn.ui5-awc_adaptiveButton .sapMBtnIcon {" +
+						"padding: 0.4rem;" +
+					"}" +
+				"}" +
+				"@context (vibration > 1) { " +
+					".sapMBtn.ui5-awc_adaptiveButton .sapMBtnContent {" +
+						"padding: 2.5rem 0rem;" +
 					"}" +
 					" .sapMBtn.ui5-awc_adaptiveButton .sapMBtnIcon {" +
 						"padding: 0.7rem;" +
-					"}" +
-				"}" +
-				"@context (vibration > 1) " +
-					".sapMBtn.ui5-awc_adaptiveButton .sapMBtnContent {" +
-						"padding: 1.5rem 1rem;" +
-					"}" +
-					" .sapMBtn.ui5-awc_adaptiveButton .sapMBtnIcon {" +
-						"padding: 1rem;" +
 					"}" +
 				"}";
 			var oHead = document.querySelector('head');

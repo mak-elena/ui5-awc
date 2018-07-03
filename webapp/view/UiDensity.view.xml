@@ -46,10 +46,10 @@
 								currency="{currency}"
 								quantity="{quantity}" />
 							<!--<HBox class="sapUiSmallMarginBegin sapUiSmallMarginTopBottom awc-productItem" >
-								<Text text="{name}" class="awc-productItem__name"/>
+								<Text text="{name}" class="ui5-awc-productItem__name"/>
 								<ObjectNumber
 									number="{price}"
-									numberUnit="{currency}" class="awc-productItem__price"/>
+									numberUnit="{currency}" class="ui5-awc-productItem__price"/>
 								<Button icon="sap-icon://less" press="onDecreaseQuantity" class="awc-productItem__button"/>
 								<Input id="itemQuantity" type="Number" value="{quantity}" width="40px" class="awc-productItem__quantity"/>
 								<Button icon="sap-icon://add" press="onIncreaseQuantity" class="awc-productItem__button"/>
