@@ -1,4 +1,6 @@
-sap.ui.define([],
+sap.ui.define([
+	"ui5/awc/demo/model/AwcProfileManager"
+	],
 	function(){
 	"use strict";
 
