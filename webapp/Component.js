@@ -112,9 +112,9 @@ sap.ui.define([
 					oModel.setProperty("/accelerationX", sensor.x);
 					oModel.setProperty("/accelerationY", sensor.y);
 					oModel.setProperty("/accelerationZ", sensor.z);
-					if(sensor.x > 1) {
+					if(Math.abs(sensor.x) > 1) {
 						oModel.setProperty("/vibration", 1);
-					} else if (sensor.x > 2) {
+					} else if (Math.abs(sensor.x) > 2) {
 						oModel.setProperty("/vibration", 2);
 					}
 					else {
@@ -145,9 +145,9 @@ sap.ui.define([
 					oModel.setProperty("/shakeX", sensor.x);
 					oModel.setProperty("/shakeY", sensor.y);
 					oModel.setProperty("/shakeZ", sensor.z);
-					if(sensor.x > 1) {
+					if(Math.abs(sensor.x) > 1) {
 						oModel.setProperty("/vibration", 1);
-					} else if (sensor.x > 2) {
+					} else if (Math.abs(sensor.x) > 2) {
 						oModel.setProperty("/vibration", 2);
 					}
 					else {
