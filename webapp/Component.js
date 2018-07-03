@@ -112,9 +112,12 @@ sap.ui.define([
 						var oModel = this.getModel("context");
 						var val = oModel.getProperty("/vibration");
 						oModel.setProperty("/vibration", 1);
-						if(val != 1 ){
+						oModel.setProperty("/accelerationX", sensor.x);
+						oModel.setProperty("/accelerationY", sensor.y);
+						oModel.setProperty("/accelerationZ", sensor.z);
+						/*if(val != 1 ){
 							alert("vibration property changed");
-						}
+						}*/
 					}
 				}
 
