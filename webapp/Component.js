@@ -119,7 +119,7 @@ sap.ui.define([
 
 
 				/* shake */
-				const shakeThreshold = 25;
+				const shakeThreshold = 0.1;
 
 				let sensor1 = new LinearAccelerationSensor({frequency: 60});
 
