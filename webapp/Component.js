@@ -109,14 +109,18 @@ sap.ui.define([
 				var oModel = this.getModel("context");
 
 				sensor.addEventListener('reading', function(){
-					if(sensor.x > 0.1) {
+					oModel.setProperty("/accelerationX", sensor.x);
+					oModel.setProperty("/accelerationY", sensor.y);
+					oModel.setProperty("/accelerationZ", sensor.z);
+					if(sensor.x > 1) {
 						oModel.setProperty("/vibration", 1);
-						oModel.setProperty("/accelerationX", sensor.x);
-						oModel.setProperty("/accelerationY", sensor.y);
-						oModel.setProperty("/accelerationZ", sensor.z);
-						this.updateContextProfile();
-
+					} else if (sensor.x > 2) {
+						oModel.setProperty("/vibration", 2);
 					}
+					else {
+						oModel.setProperty("/vibration", 0);
+					}
+					this.updateContextProfile();
 				}.bind(this));
 
 				/*sensor.onreading = () => {
