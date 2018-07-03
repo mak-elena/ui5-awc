@@ -110,7 +110,11 @@ sap.ui.define([
 					console.log("Acceleration along Z-axis: " + sensor.z);*/
 					if(sensor.x > 10) {
 						var oModel = this.getModel("context");
+						var val = oModel.getProperty("/vibration");
 						oModel.setProperty("/vibration", 1);
+						if(val != 1 ){
+							alert("vibration property changed");
+						}
 					}
 				}
 

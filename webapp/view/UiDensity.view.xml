@@ -23,7 +23,7 @@
 		</semantic:titleSnappedContent>
 
 		<semantic:headerContent>
-			<Text text="{i18n>sampleDescription}{context>/vibration}" visible="{= ${context>/vibration} > 50 ? true : false }"/>
+			<Text text="{i18n>motionDetectedText} {context>/vibration}" visible="{= ${context>/vibration} > 0 ? true : false }"/>
 			<SegmentedButton
 				id="theme"
 				selectedKey="{context>/vibration}">
