@@ -138,7 +138,7 @@ sap.ui.define([
 				let sensor1 = new LinearAccelerationSensor({frequency: 60});
 
 				sensor.addEventListener('reading', function(){
-					if(sensor.x > 0.1) {
+					if(sensor.x > 1) {
 						oModel.setProperty("/shakeX", sensor.x);
 						oModel.setProperty("/shakeY", sensor.y);
 						oModel.setProperty("/shakeZ", sensor.z);
