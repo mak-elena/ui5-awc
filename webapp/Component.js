@@ -103,11 +103,9 @@ sap.ui.define([
 			_initSensors: function () {
 				let sensor = new Accelerometer({frequency: 100});
 				sensor.start();
+				sensor.active = true;
 
 				sensor.onreading = () => {
-					/*console.log("Acceleration along X-axis: " + sensor.x);
-					console.log("Acceleration along Y-axis: " + sensor.y);
-					console.log("Acceleration along Z-axis: " + sensor.z);*/
 					if(sensor.x > 0.1) {
 						var oModel = this.getModel("context");
 						var val = oModel.getProperty("/vibration");
@@ -115,9 +113,7 @@ sap.ui.define([
 						oModel.setProperty("/accelerationX", sensor.x);
 						oModel.setProperty("/accelerationY", sensor.y);
 						oModel.setProperty("/accelerationZ", sensor.z);
-						/*if(val != 1 ){
-							alert("vibration property changed");
-						}*/
+
 					}
 				}
 
@@ -129,12 +125,12 @@ sap.ui.define([
 
 				sensor1.addEventListener('reading', () => {
 					if (sensor.x > shakeThreshold) {
-						alert("Shake detected.");
-						//console.log("Shake detected.");
+						oModel.setProperty("/shake", "Shake detected");
 					}
 				});
 
-				sensor.start();
+				sensor1.start();
+				sensor1.active = true;
 			}
 
 		});
