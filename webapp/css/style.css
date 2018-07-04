@@ -15,7 +15,7 @@
 
 
 .ui5-awc-panel__order-button {
-	width: 100%;
+	/*width: 100%;*/
 }
 
 .ui5-awc-productItem__name {
@@ -41,4 +41,16 @@
 
 .ui5-awc-panel__order-button .sapMBtnInner {
 	font-size: 1rem;
+}
+
+.ui5-awc .sapFDynamicPageActualFooterControl.sapMIBar {
+	height: auto;
+}
+
+.ui5-awc .sapMBarChild.sapMTBSpacer {
+	display: none;
+}
+
+.ui5-awc .sapMIBar.sapMTB .sapMBarChild {
+	margin: 0 auto;
 }

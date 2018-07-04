@@ -3,6 +3,7 @@
 	xmlns="sap.m"
 	xmlns:mvc="sap.ui.core.mvc"
 	xmlns:semantic="sap.f.semantic"
+	xmlns:l="sap.ui.layout"
 	xmlns:awc="ui5.awc">
 
 	<semantic:SemanticPage
@@ -11,7 +12,7 @@
 		headerExpanded="true"
 		toggleHeaderOnTitleClick="true"
 		preserveHeaderStateOnScroll="false"
-		showFooter="false">
+		showFooter="true">
 
 		<!-- Title Heading-->
 		<semantic:titleHeading>
@@ -57,16 +58,9 @@
 						</CustomListItem>
 					</items>
 				</List>
-				<!--<awc:ProductItem
-					name="name"
-					price="1"
-					currency="EUR"
-					quantity="0" />-->
-				<awc:AdaptiveButton text="Order My Pizza" class="ui5-awc-panel__order-button" />
+				<!--<awc:AdaptiveButton text="Order My Pizza" class="ui5-awc-panel__order-button" />
 				<Text text="{i18n>motionDetectedText} {context>/vibration}"/>
-				<Text text="{i18n>accelerationText} {i18n>XText} {context>/accelerationX}; {i18n>YText} {context>/accelerationY}; {i18n>ZText} {context>/accelerationZ};"/>
-				<Text text="{i18n>shakeText} {i18n>XText} {context>/shakeX}; {i18n>YText} {context>/shakeY}; {i18n>ZText} {context>/shakeZ};" />
-
+				<Text text="{i18n>accelerationText} {i18n>XText} {context>/accelerationX}; {i18n>YText} {context>/accelerationY}; {i18n>ZText} {context>/accelerationZ};"/>-->
 			</VBox>
 		</semantic:content>
 
@@ -80,6 +74,9 @@
 				visible="{=!${appView>/actionButtonsInfo/midColumn/fullScreenMode}}"
 				press="onFullScreenPress" />
 		</semantic:fullScreenAction>
+		<semantic:footerCustomActions>
+			<awc:AdaptiveButton text="Order My Pizza" class="ui5-awc-panel__order-button" />
+		</semantic:footerCustomActions>
 
 		<semantic:exitFullScreenAction >
 			<semantic:ExitFullScreenAction

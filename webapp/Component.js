@@ -5,7 +5,7 @@ sap.ui.define([
 		"sap/ui/Device",
 		"sap/ui/model/json/JSONModel",
 		"ui5/awc/demo/model/models",
-		"ui5/awc/demo/model/AwcProfileManager",
+		"ui5/awc/demo/controls/AwcProfileManager",
 		"ui5/awc/demo/controller/ErrorHandler",
 		"ui5/awc/demo/model/ContextModel"
 	], function (jQuery, UIComponent, Device, JSONModel, models, AwcProfileStore, ErrorHandler, ContextModel) {
@@ -106,65 +106,42 @@ sap.ui.define([
 				sensor.start();
 				sensor.active = true;
 
-				var oModel = this.getModel("context");
+				let oModel = this.getModel("context");
 
 				sensor.addEventListener('reading', function(){
 					oModel.setProperty("/accelerationX", sensor.x);
 					oModel.setProperty("/accelerationY", sensor.y);
 					oModel.setProperty("/accelerationZ", sensor.z);
+					var iVibrationLevel = 0;
 					if(Math.abs(sensor.x) > 1) {
-						oModel.setProperty("/vibration", 1);
+						iVibrationLevel = 1;
 					} else if (Math.abs(sensor.x) > 2) {
-						oModel.setProperty("/vibration", 2);
+						iVibrationLevel = 2;
+					}
+					if(oModel.getProperty("/vibration") > iVibrationLevel & !this._timeout) {
+						this._timeout = setTimeout(
+							this._updateVibrationLevel().bind(this),
+							2000,
+							oModel,
+							iVibrationLevel)
 					}
 					else {
-						oModel.setProperty("/vibration", 0);
+						clearTimeout(this._timeout);
+						this._timeout = null;
+
+						if (oModel.getProperty("/vibration") < iVibrationLevel) {
+							oModel.setProperty("/vibration", iVibrationLevel);
+							this.updateContextProfile();
+						}
 					}
-					this.updateContextProfile();
+
+
 				}.bind(this));
+			},
 
-				/*sensor.onreading = () => {
-					if(sensor.x > 0.1) {
-						oModel.setProperty("/vibration", 1);
-						oModel.setProperty("/accelerationX", sensor.x);
-						oModel.setProperty("/accelerationY", sensor.y);
-						oModel.setProperty("/accelerationZ", sensor.z);
-						this.updateContextProfile();
-
-					}
-				}
-				.bind(this);*/
-
-
-				/* shake */
-				const shakeThreshold = 0.1;
-
-				let sensor1 = new LinearAccelerationSensor({frequency: 60});
-
-				sensor.addEventListener('reading', function(){
-					oModel.setProperty("/shakeX", sensor.x);
-					oModel.setProperty("/shakeY", sensor.y);
-					oModel.setProperty("/shakeZ", sensor.z);
-					if(Math.abs(sensor.x) > 1) {
-						oModel.setProperty("/vibration", 1);
-					} else if (Math.abs(sensor.x) > 2) {
-						oModel.setProperty("/vibration", 2);
-					}
-					else {
-						oModel.setProperty("/vibration", 0);
-					}
-					this.updateContextProfile();
-				}.bind(this));
-/*				sensor1.onreading = () => {
-					//if (sensor.x > shakeThreshold) {
-						oModel.setProperty("/shakeX", sensor.x);
-						oModel.setProperty("/shakeY", sensor.y);
-						oModel.setProperty("/shakeZ", sensor.z);
-					//}
-				}*/
-
-				sensor1.start();
-				sensor1.active = true;
+			_updateVibrationLevel: function ( oModel, iVibrationLevel) {
+				oModel.setProperty("/vibration", iVibrationLevel);
+				this.updateContextProfile();
 			}
 
 		});

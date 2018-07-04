@@ -10,6 +10,9 @@ sap.ui.define([],
 						"width: 3.4rem;" +
 						"font-size: 1.2rem;" +
 					"}" +
+					".sapMInput.ui5-awc_adaptiveInput > .sapMInputDivWrapper {" +
+						"height: 100%;" +
+					"}" +
 				"}" +
 				"@context (vibration > 1) {" +
 					".sapMInput.ui5-awc_adaptiveInput .sapMInputBaseInner {" +

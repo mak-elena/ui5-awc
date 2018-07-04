@@ -3,7 +3,7 @@ sap.ui.define([
 		"ui5/awc/demo/controller/BaseController",
 		"sap/ui/model/json/JSONModel",
 		"ui5/awc/demo/model/formatter",
-		"ui5/awc/demo/model/AwcProfileManager"
+		"ui5/awc/demo/controls/AwcProfileManager"
 	], function (BaseController, JSONModel, formatter, AwcProfileStore) {
 		"use strict";
 

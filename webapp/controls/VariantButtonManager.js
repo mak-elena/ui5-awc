@@ -32,10 +32,10 @@ sap.ui.define([],
 			}
 
 			performAdaptation(profile) {
-				super.performAdaptation(profile);
+				/*super.performAdaptation(profile);
 				if (window.ShadyCSS) {
 					window.ShadyCSS.styleSubtree(this);
-				}
+				}*/
 				this._update();
 			}
 
@@ -145,6 +145,4 @@ sap.ui.define([],
 		VariantButtonComponent.defaultVariant = MixedButton;
 
 		customElements.define('variant-button', VariantButtonComponent);
-
-		//window.ShadyCSS.CustomStyleInterface.addCustomStyle(document.querySelector('style.custom'));
 	});
