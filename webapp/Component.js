@@ -84,7 +84,7 @@ sap.ui.define([
 			_initContextModel: function () {
 				var oContextModel = new ContextModel({
 						"display-mode": "mixed",
-						"vibration": "0"
+						"vibration": "1"
 					}
 				);
 				oContextModel.setDefaultBindingMode("TwoWay");
@@ -107,6 +107,7 @@ sap.ui.define([
 				sensor.active = true;
 
 				let oModel = this.getModel("context");
+				oModel.setProperty("/vibration", 2);
 
 				sensor.addEventListener('reading', function(){
 					oModel.setProperty("/accelerationX", sensor.x);
@@ -140,6 +141,7 @@ sap.ui.define([
 			},
 
 			_updateVibrationLevel: function ( oModel, iVibrationLevel) {
+				alert("_updateVibrationLevel " + iVibrationLevel)
 				oModel.setProperty("/vibration", iVibrationLevel);
 				this.updateContextProfile();
 			}
