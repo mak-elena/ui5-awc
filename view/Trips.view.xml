@@ -1,0 +1,66 @@
+<mvc:View
+	controllerName="ui5.awc.demo.controller.Trips"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:core="sap.ui.core"
+	xmlns:semantic="sap.f.semantic"
+	xmlns:awc="ui5.awc">
+
+	<semantic:SemanticPage
+		id="mySemanticPage"
+		headerPinnable="true"
+		headerExpanded="true"
+		toggleHeaderOnTitleClick="true"
+		preserveHeaderStateOnScroll="false"
+		showFooter="false"
+		class="custom-page">
+
+		<!-- Title Heading-->
+		<semantic:titleHeading>
+			<Title text="{i18n>uiStructureExampleName}"/>
+		</semantic:titleHeading>
+
+		<semantic:titleSnappedContent>
+			<Text text="{i18n>sampleShortDescription}"/>
+		</semantic:titleSnappedContent>
+
+		<semantic:headerContent>
+			<RangeSlider showAdvancedTooltip="true" enableTickmarks="true" min="1" max="31"/>
+		</semantic:headerContent>
+
+		<!-- Content -->
+		<semantic:content>
+			<List id="tripsList" items="{trips>/}" class="sapUiMediumMargin sapUiContentPadding">
+				<items>
+					<CustomListItem class="ui5-awc__tripsItem" >
+						<core:Icon src="sap-icon://{trips>icon}" />
+						<Text text="{trips>title}" level="H3" class="ui5-awc__title"/>
+						<Text
+							text="{
+								path: 'trips>startDate',
+								formatter: '.formatter.dateFormat'
+								}"/>
+					</CustomListItem>
+				</items>
+			</List>
+		</semantic:content>
+
+		<!-- Actions -->
+		<semantic:closeAction>
+			<semantic:CloseAction press="onCloseExamplePress"/>
+		</semantic:closeAction>
+
+		<semantic:fullScreenAction>
+			<semantic:FullScreenAction
+				visible="{=!${appView>/actionButtonsInfo/midColumn/fullScreenMode}}"
+				press="onFullScreenPress"/>
+		</semantic:fullScreenAction>
+
+		<semantic:exitFullScreenAction>
+			<semantic:ExitFullScreenAction
+				press="onExitFullScreenPress"
+				visible="{=${appView>/actionButtonsInfo/midColumn/fullScreenMode}}"/>
+		</semantic:exitFullScreenAction>
+
+	</semantic:SemanticPage>
+</mvc:View>

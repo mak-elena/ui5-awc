@@ -1,0 +1,62 @@
+<mvc:View
+	controllerName="ui5.awc.demo.controller.UiStructure"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:semantic="sap.f.semantic"
+	xmlns:awc="ui5.awc">
+
+	<semantic:SemanticPage
+		id="mySemanticPage"
+		headerPinnable="true"
+		headerExpanded="true"
+		toggleHeaderOnTitleClick="true"
+		preserveHeaderStateOnScroll="false"
+		showFooter="false"
+		class="custom-page">
+
+		<!-- Title Heading-->
+		<semantic:titleHeading>
+			<Title text="{i18n>uiStructureExampleName}"/>
+		</semantic:titleHeading>
+
+		<semantic:titleSnappedContent>
+			<Text text="{i18n>sampleShortDescription}"/>
+		</semantic:titleSnappedContent>
+
+		<semantic:headerContent>
+			<Text text="{i18n>sampleDescription}"/>
+			<SegmentedButton
+				id="theme"
+				selectedKey="{context>/display-mode}">
+				<items>
+					<SegmentedButtonItem text="text" key="text" />
+					<SegmentedButtonItem text="mixed" key="mixed" />
+					<SegmentedButtonItem text="icon" key="icon" />
+				</items>
+			</SegmentedButton>
+		</semantic:headerContent>
+
+		<!-- Content -->
+		<semantic:content>
+			<awc:VariantButton text="{i18n>uiDensityButtonText}" icon="sap-icon://credit-card" />
+		</semantic:content>
+
+		<!-- Actions -->
+		<semantic:closeAction>
+			<semantic:CloseAction press="onCloseExamplePress"/>
+		</semantic:closeAction>
+
+		<semantic:fullScreenAction>
+			<semantic:FullScreenAction
+				visible="{=!${appView>/actionButtonsInfo/midColumn/fullScreenMode}}"
+				press="onFullScreenPress"/>
+		</semantic:fullScreenAction>
+
+		<semantic:exitFullScreenAction>
+			<semantic:ExitFullScreenAction
+				press="onExitFullScreenPress"
+				visible="{=${appView>/actionButtonsInfo/midColumn/fullScreenMode}}"/>
+		</semantic:exitFullScreenAction>
+
+	</semantic:SemanticPage>
+</mvc:View>
