@@ -5,7 +5,7 @@ sap.ui.define([
 	function (XMLComposite) {
 		"use strict";
 
-		return XMLComposite.extend("ui5.awc.demo.controls.ProductItem", {
+		return XMLComposite.extend("ui5.awc.demo.controls.TripListItem", {
 			metadata: {
 				properties: {
 					name: { type: "string"},

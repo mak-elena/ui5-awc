@@ -115,6 +115,14 @@
 					]
 				},
 				{
+					"pattern": "Trips",
+					"name": "trips",
+					"target": [
+						"master",
+						"trips"
+					]
+				},
+				{
 					"pattern": "uiStructure",
 					"name": "uiStructure",
 					"target": [
@@ -133,6 +141,12 @@
 				"uiDensity": {
 					"viewName": "UiDensity",
 					"viewId": "uiDensity",
+					"viewLevel": 1,
+					"controlAggregation": "midColumnPages"
+				},
+				"trips": {
+					"viewName": "Trips",
+					"viewId": "trips",
 					"viewLevel": 1,
 					"controlAggregation": "midColumnPages"
 				},

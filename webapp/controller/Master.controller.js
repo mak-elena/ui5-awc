@@ -48,6 +48,12 @@ sap.ui.define([
 				this.getModel("appView").setProperty("/layout", "TwoColumnsMidExpanded");
 			},
 
+			onShowTripsExample: function () {
+				var bReplace = !Device.system.phone;
+				this.getRouter().navTo("trips", bReplace);
+				this.getModel("appView").setProperty("/layout", "TwoColumnsMidExpanded");
+			},
+
 			onShowUiStructureExample: function () {
 				var bReplace = !Device.system.phone;
 				this.getRouter().navTo("uiStructure", bReplace);

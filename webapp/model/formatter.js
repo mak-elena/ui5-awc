@@ -16,6 +16,11 @@ sap.ui.define([
 				}
 
 				return parseFloat(sValue).toFixed(2);
+			},
+
+			dateFormat: function(sValue){
+				var oDate = new Date(sValue);
+				return oDate.toISOString().slice(0,10);
 			}
 		};
 

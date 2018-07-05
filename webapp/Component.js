@@ -31,6 +31,7 @@ sap.ui.define([
 
 				this._initContextModel();
 				this._initProductsModel();
+				this._initTripsModel();
 				this.updateContextProfile();
 
 				this._initSensors();
@@ -99,6 +100,12 @@ sap.ui.define([
 				var oProductsModel = new JSONModel(jQuery.sap.getModulePath("ui5/awc/demo", "/model/Products.json"));
 				//this.setModel(oProductsModel, "products");
 				this.setModel(oProductsModel);
+			},
+
+			_initTripsModel: function () {
+				var oTripsModel = new JSONModel(jQuery.sap.getModulePath("ui5/awc/demo", "/model/Trips.json"));
+				//this.setModel(oProductsModel, "products");
+				this.setModel(oTripsModel, "trips");
 			},
 
 			_initSensors: function () {

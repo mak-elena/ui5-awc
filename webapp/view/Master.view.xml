@@ -32,6 +32,12 @@
 						</TileContent>
 					</GenericTile>
 					<GenericTile
+						header="Trips"
+						press="onShowTripsExample">
+						<TileContent>
+						</TileContent>
+					</GenericTile>
+					<GenericTile
 						header="UiStructure"
 						press="onShowUiStructureExample">
 						<TileContent>

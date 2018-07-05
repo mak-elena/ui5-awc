@@ -54,3 +54,11 @@
 .ui5-awc .sapMIBar.sapMTB .sapMBarChild {
 	margin: 0 auto;
 }
+
+.ui5-awc__tripsItem .sapMLIBContent {
+	margin: 1rem;
+}
+
+.ui5-awc .ui5-awc__title {
+	padding: 0 1rem;
+}
